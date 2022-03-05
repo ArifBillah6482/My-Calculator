@@ -6,58 +6,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <style>
-        .calculator {
-            color: black;
-            background-color: rgb(216, 216, 247);
-            font-size: 40px;
-            border-radius: 10px;
-            margin: 30px;
-            padding: 30px 40px;
-            text-align: center;
-            display: inline-block;
-            cursor: pointer;
-            border: 2px dotted blue;
-        }
-        .calculator:hover{
-            background-color: rgb(19, 69, 233);
-            color: white;
-        }
+      *{
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+      body{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 50vh;
+          background-color: black;
+          color: white;
+          cursor: pointer;
+      }
+      .calculator{
+          display: grid;
+          position: relative;
+          grid-gap: 3px;
+          
+      }
+      .calculator .value{
+          grid-column: span 4;
+          height: 50px;
+          text-align: right;
+          border: none;
+          outline: none;
+          padding: 5px;
+          font-size: 20px;
+          margin-top: 50px;
+          margin-bottom: 50px;
+          
+      }
+      .calculator span {
+          
+          display: grid;
+          width: 50px;
+          height: 50px;
+          background-color: blue;
+          text-align: center;
+          place-items: center;
+          border: 1px solid red;
+          
+      }
+      .calculator span:active{
+          background-color: red;
+      }
+      .calculator span.clear{
+          grid-column: span 2;
+          width: 120px;
+      }
+      .calculator span.soman{
+          grid-column: span 2;
+          width: 120px;
+      }
     </style>
-
 </head>
 <body>
+    <form action="" class="calculator" name="calc">
+        <input type="text" class="value" name="txt">
+        <span class="num clear" onclick="document.calc.txt.value = ''" >Clear</span>
+        <span class="num" onclick="document.calc.txt.value += '/'" >/</span>
+        <span class="num" onclick="document.calc.txt.value += '*'" >*</span>
+        <span class="num" onclick="document.calc.txt.value += '7'" >7</span>
+        <span class="num" onclick="document.calc.txt.value += '8'" >8</span>
+        <span class="num" onclick="document.calc.txt.value += '9'" >9</span>
+        <span class="num" onclick="document.calc.txt.value += '-'" >-</span>
+        <span class="num" onclick="document.calc.txt.value += '4'" >4</span>
+        <span class="num" onclick="document.calc.txt.value += '5'" >5</span>
+        <span class="num" onclick="document.calc.txt.value += '6'" >6</span>
+        <span class="num" onclick="document.calc.txt.value += '+'" >+</span>
+        <span class="num" onclick="document.calc.txt.value += '3'" >3</span>
+        <span class="num" onclick="document.calc.txt.value += '2'" >2</span>
+        <span class="num" onclick="document.calc.txt.value += '1'" >1</span>
+        <span class="num" onclick="document.calc.txt.value += '0'" >0</span>
+        <span class="num" onclick="document.calc.txt.value += '00'" >00</span>
+        <span class="num" onclick="document.calc.txt.value += '.'" ><h1>.</h1></span>
+        <span class="num soman" onclick="document.calc.txt.value = eval(calc.txt.value)">=</span>
 
-<div class="calculator">
-    <script>
-        var number1 = parseInt(prompt("Enter 1st number: "));
-var operator = prompt("'+', '-', '*', '/ ( ভাগ )', '% ( ভাগশেষ )'");
-var number2 = parseInt(prompt("Enter 2nd number:" ));
-
-if (operator == "+"){
-    result = number1 + number2;
-    document.write(result);
-}
-else if(operator == "-") {
-    result = number1 - number2;
-    document.write(result);
-}
-else if (operator == "*") {
-    result = number1 * number2;
-    document.write(result);
-}
-else if (operator == "/") {
-    result = number1 / number2;
-    document.write(result);
-}
-else if (operator == "%") {
-    result = number1 % number2;
-    document.write(result);
-}
-else {
-    document.write("জানি না");
-}
-    </script>
-</div>
-    
+    </form>
 </body>
 </html>
